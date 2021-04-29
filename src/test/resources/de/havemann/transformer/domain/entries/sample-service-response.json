@@ -1,0 +1,39 @@
+{
+  "navigationEntries": [{
+    "type": "section",
+    "label": "Sortiment",
+    "children": [{
+      "type": "node",
+      "label": "Alter",
+      "children": [{
+        "type": "node",
+        "label": "Baby & Kleinkind",
+        "children": [{
+          "type": "link",
+          "label": "0-6 Monate",
+          "url": "http:\/\/www.mytoys.de\/0-6-months\/"
+        }, {
+          "type": "link",
+          "label": "7-12 Monate",
+          "url": "http:\/\/www.mytoys.de\/7-12-months\/"
+        }, {
+          "type": "link",
+          "label": "13-24 Monate",
+          "url": "http:\/\/www.mytoys.de\/13-24-months\/"
+        }]
+      }, {
+        "type": "node",
+        "label": "Kindergarten",
+        "children": [{
+          "type": "link",
+          "label": "2-3 Jahre",
+          "url": "http:\/\/www.mytoys.de\/24-47-months\/"
+        }, {
+          "type": "link",
+          "label": "4-5 Jahre",
+          "url": "http:\/\/www.mytoys.de\/48-71-months\/"
+        }]
+      }]
+    }]
+  }]
+}
