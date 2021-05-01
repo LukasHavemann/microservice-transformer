@@ -83,6 +83,14 @@ internal class LinksAdapterTest {
             }
     }
 
+    @Test
+    fun `call with unknown parent test`() {
+        webClient.get().uri("/links?parent=Unknown")
+            .accept(MediaType.APPLICATION_JSON)
+            .exchange()
+            .expectStatus().is4xxClientError
+    }
+
     @TestConfiguration
     open class MockWebServiceConfiguration {
 

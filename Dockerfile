@@ -6,7 +6,7 @@ WORKDIR application
 COPY src ./src
 COPY pom.xml .
 RUN mvn clean package
-RUN mv target/Microservice-Transformer-1.0-SNAPSHOT.jar application.jar
+RUN mv target/microservice-transformer-1.0-SNAPSHOT.jar application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
 #

@@ -1,10 +1,10 @@
 package de.havemann.transformer.infrastructure
 
-import de.havemann.transformer.Loggable
+import de.havemann.transformer.base.Loggable
+import de.havemann.transformer.base.logger
 import de.havemann.transformer.domain.entries.NavigationEntries
 import de.havemann.transformer.domain.entries.NavigationEntriesParser
 import de.havemann.transformer.domain.service.NavigationEntriesService
-import de.havemann.transformer.logger
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
