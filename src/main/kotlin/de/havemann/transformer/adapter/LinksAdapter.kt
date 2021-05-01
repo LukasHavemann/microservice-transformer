@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Mono
+import reactor.core.scheduler.Schedulers
 
 
 @RestController
@@ -30,6 +31,7 @@ class LinksAdapter(@Autowired val navigationEntriesService: NavigationEntriesSer
         val sorter: Comparator<Link>? = sorter(sortCriteria)
         return navigationEntriesService
             .load()
+            .subscribeOn(Schedulers.boundedElastic())
             .map { NavigationEntriesTransformer(it.navigationEntries, parent).transform() }
             .doOnNext { if (it.isEmpty()) throw EmptyNavigationEntriesException(parent) }
             .map { if (sorter != null) it.sortedWith(sorter) else it }
