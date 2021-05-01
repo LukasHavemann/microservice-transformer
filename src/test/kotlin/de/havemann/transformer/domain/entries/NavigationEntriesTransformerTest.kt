@@ -33,4 +33,19 @@ internal class NavigationEntriesTransformerTest {
             assertThat(transformed[2].label).isEqualTo("13-24 Monate")
         }.assertAll()
     }
+
+    @Test
+    fun `transform navigation entries with intermediary node parent`() {
+        val content = this.javaClass.getResource("sample-service-response.json").readText()
+        val transformed = NavigationEntriesTransformer(
+            NavigationEntriesParser.parse(content).navigationEntries,
+            "Alter"
+        ).transform()
+
+        SoftAssertions().apply {
+            assertThat(transformed).hasSize(5)
+            assertThat(transformed[0].label).isEqualTo("0-6 Monate")
+            assertThat(transformed[2].label).isEqualTo("13-24 Monate")
+        }.assertAll()
+    }
 }

@@ -4,6 +4,16 @@ import java.util.*
 import java.util.Comparator.comparing
 import kotlin.reflect.KProperty1
 
+/**
+ * Sorting is determined through the use of the ‘sort’ query string parameter. The value of this parameter is a
+ * comma-separated list of sort keys. Sort directions can optionally be appended to each sort key, separated by the ‘:’
+ * character.
+ *
+ * The supported sort directions are either ‘asc’ for ascending or ‘desc’ for descending.
+ *
+ * The caller may (but is not required to) specify a sort direction for each key. If a sort direction is not specified
+ * for a key, then a default is set by the server.
+ */
 data class SortKey(val key: String, val ordering: Ordering) {
     companion object {
 
@@ -16,8 +26,10 @@ data class SortKey(val key: String, val ordering: Ordering) {
         ): Comparator<Entity> {
             return sortKeys
                 .stream()
+                .filter { sortKeyToProperty[it.key] != null }
                 .map { sortKey ->
-                    val sortingFunction: (t: Entity) -> Value = { sortKeyToProperty[sortKey.key]?.call(it)!! }
+                    val property = sortKeyToProperty[sortKey.key]
+                    val sortingFunction: (t: Entity) -> Value = { property?.call(it)!! }
                     sortKey.ordering.adjust(comparing(sortingFunction))
                 }
                 .reduce { a, b -> a.thenComparing(b) }

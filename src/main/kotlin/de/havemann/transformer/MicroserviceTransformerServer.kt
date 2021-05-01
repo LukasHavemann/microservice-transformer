@@ -1,4 +1,4 @@
-package de.havemann.transformer.domain
+package de.havemann.transformer
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
