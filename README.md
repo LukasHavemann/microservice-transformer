@@ -19,7 +19,7 @@ The base path, the remote microservice url and the api-key ca be changed like th
 docker run -d -p 8080:8080 lukashavemann/microservice-transformer:latest \
     --spring.webflux.base-path:/my-new/api/base/path \
     --de.havemann.lukas.transformer.url="http://new-url.de/" \
-    --de.havemann.lukas.transformer.apitoken="new-api-token
+    --de.havemann.lukas.transformer.apitoken="new-api-token"
 ```
 
 ## :house: Architecture
