@@ -30,7 +30,7 @@ class NavigationEntriesTransformer(
     }
 
     private fun isInclude(parentLabel: String): Boolean {
-        return if (this.parentLabel != null) parentLabel.endsWith(this.parentLabel) else true
+        return if (this.parentLabel != null) parentLabel.contains(this.parentLabel) else true
     }
 }
 
