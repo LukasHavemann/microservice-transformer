@@ -11,3 +11,5 @@ reactor:
 de.havemann.lukas.transformer:
   url: https://codechallenge.mobilelab.io/v1/mytoys/navigation
   apitoken: N8Nx0OwOvo1iuN2ZkFHZlyVKBVgoIcy4tUHMppO5
+
+management.endpoints.web.exposure.include: "*"
